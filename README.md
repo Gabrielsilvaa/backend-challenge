@@ -1,128 +1,67 @@
-# Descrição
+# java-itau
 
-Construa uma aplicação que exponha uma api web que recebe por parametros um JWT (string) e verifica se é valida conforme regras abaixo:
+Este projeto é uma aplicação baseada em Java que se concentra na validação de JWT (JSON Web Token). Ele é construído usando Spring Boot e Maven, e fornece um conjunto de APIs RESTful para decodificar tokens JWT.
 
-- Deve ser um JWT válido
-- Deve conter apenas 3 claims (Name, Role e Seed)
-- A claim Name não pode ter carácter de números
-- A claim Role deve conter apenas 1 dos três valores (Admin, Member e External)
-- A claim Seed deve ser um número primo.
-- O tamanho máximo da claim Name é de 256 caracteres.
+## Recursos
 
-#  Definição
-Input: Um JWT (string).  
-Output: Um boolean indicando se a valido ou não.
+- **Decodificação JWT**: A aplicação fornece dois endpoints (`/api/decode` e `/api/decode/v2`) para decodificar tokens JWT. O primeiro endpoint aceita o token no corpo da solicitação, enquanto o segundo espera o token no cabeçalho `Authorization`, prefixado com `Bearer `.
 
-Use a linguagem de programação que considera ter mais conhecimento.
+- **Validação**: A aplicação valida os tokens JWT e lança uma `IllegalArgumentException` se o token for nulo ou se o token bearer não começar com `Bearer `.
 
-# Massa de teste 
+- **Logging**: A aplicação usa SLF4J para logging. Ele registra uma mensagem de erro quando o token é nulo ou inválido.
 
-### Caso 1:
-Entrada:
-```
-eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg
-```
-Saida:
-```
-verdadeiro
-```
-Justificativa:
-Abrindo o JWT, as informações contidas atendem a descrição:
-```json
-{
-  "Role": "Admin",
-  "Seed": "7841",
-  "Name": "Toninho Araujo"
-}
-```
+- **Testes Unitários**: A aplicação inclui testes unitários para a classe `JwtController`, garantindo o comportamento correto da funcionalidade de decodificação JWT.
 
-### Caso 2:
-Entrada:
-```
-eyJhbGciOiJzI1NiJ9.dfsdfsfryJSr2xrIjoiQWRtaW4iLCJTZrkIjoiNzg0MSIsIk5hbrUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05fsdfsIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg
-```
-Saida:
-```
-falso
-```
-Justificativa:
-JWT invalido
+## Tecnologias Utilizadas
 
-### Caso 3:
-Entrada:
-```
-eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiRXh0ZXJuYWwiLCJTZWVkIjoiODgwMzciLCJOYW1lIjoiTTRyaWEgT2xpdmlhIn0.6YD73XWZYQSSMDf6H0i3-kylz1-TY_Yt6h1cV2Ku-Qs
-```
-Saida:
-```
-falso
-```
-Justificativa:
-Abrindo o JWT, a Claim Name possui caracter de números
-```json
-{
-  "Role": "External",
-  "Seed": "72341",
-  "Name": "M4ria Olivia"
-}
+- **Java**: A aplicação é escrita em Java, uma linguagem de programação orientada a objetos popular.
+
+- **Spring Boot**: Este projeto usa Spring Boot, um framework baseado em Java de código aberto usado para criar aplicações Spring autônomas de nível de produção.
+
+- **Maven**: Maven é usado como a ferramenta de construção para este projeto.
+
+- **JUnit e Mockito**: Estes são usados para testes unitários na aplicação.
+
+- **java-jwt do Auth0**: Esta biblioteca é usada para decodificar tokens JWT.
+
+- **Springdoc-openapi**: Esta dependência é usada para a documentação OpenAPI 3 das APIs REST.
+
+- **Spring Boot Actuator**: Fornece recursos prontos para produção para monitorar e gerenciar a aplicação.
+
+---
+
+Para inicializar o projeto via linha de comando (CMD), você pode seguir os seguintes passos:
+
+1. Navegue até o diretório do projeto usando o comando `cd`. Por exemplo:
+
+ajustar o caminho do diretório conforme necessário para o seu ambiente.
+```bash
+cd C:\Users\g.silva.andrade\OneDrive - Accenture\Documents\git\java-itau
 ```
 
-### Caso 4:
-Entrada:
+2. Uma vez no diretório do projeto, você pode usar o Maven para compilar e executar o projeto. O comando a seguir irá compilar o projeto e empacotá-lo em um arquivo JAR:
+
+```bash
+mvn clean package
 ```
-eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiTWVtYmVyIiwiT3JnIjoiQlIiLCJTZWVkIjoiMTQ2MjciLCJOYW1lIjoiVmFsZGlyIEFyYW5oYSJ9.cmrXV_Flm5mfdpfNUVopY_I2zeJUy4EZ4i3Fea98zvY
+
+3. Após a compilação bem-sucedida, você pode executar o projeto usando o comando `java -jar` seguido pelo caminho do arquivo JAR gerado. Por exemplo:
+
+```bash
+java -jar target/backend-challenge-0.0.1-SNAPSHOT.jar
 ```
-Saida:
-```
-falso
-```
-Justificativa:
-Abrindo o JWT, foi encontrado mais de 3 claims.
-```json
-{
-  "Role": "Member",
-  "Org": "BR",
-  "Seed": "14627",
-  "Name": "Valdir Aranha"
-}
-```
-## Pontos que daremos maior atenção
 
-- Testes de unidade / integração
-- Abstração, acoplamento, extensibilidade e coesão
-- Design de API
-- SOLID
-- Documentação da solução no *README* 
-- Commits realizados durante a construção
-- Observability (Logging/Tracing/Monitoring)
+Para inicializar o projeto via IDE (IntelliJ IDEA), você pode seguir os seguintes passos:
 
-## Demais Itens
+1. Abra o IntelliJ IDEA e clique em `File > Open...`.
+2. Navegue até o diretório do projeto e clique em `Open`.
+3. Uma vez que o projeto é aberto, você pode executá-lo clicando com o botão direito do mouse no arquivo `BackendChallengeApplication.java` e selecionando `Run 'BackendChallengeApplication.main()'`.
 
-- Containerização da aplicação
-- Helm Chart em um cluster de Kubernetes/ECS/FARGATE
-- Repositório no GitHub.
-- Deploy Automatizado para Infra-Estrutura AWS
-- scripts ci/cd
-- coleções do Insomnia ou ferramentas para execução
-- Provisione uma infraestrutura na AWS com OpenTerraform
-- expor a api em algum provedor de cloud (aws, azure...)
-- Uso de Engenharia de Prompt.
+O projeto está usando a versão 3.3.1 do Maven e a versão 21 do Java, conforme especificado no arquivo `pom.xml`.
 
-### Sobre a documentação
+----
+1. `JwtController`: Esta classe é um controlador REST que fornece dois endpoints para decodificar tokens JWT. O método `decodeJwtToken()` aceita o token no corpo da solicitação, enquanto o método `decodeJwtTokenv2()` espera o token no cabeçalho `Authorization`, prefixado com `Bearer `. Ambos os métodos lançam uma `IllegalArgumentException` se o token for nulo ou se o token bearer não começar com `Bearer `.
 
-Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
+2. `JwtControllerTest`: Esta classe é responsável por realizar os testes unitários para a classe `JwtController`. Ela contém testes para verificar o comportamento correto dos métodos de decodificação de tokens JWT quando fornecidos com tokens válidos, nulos ou inválidos.
 
-Algumas dicas do que esperamos ver são:
-
-- Instruções básicas de como executar o projeto;
-- Detalhes da descrição dos metodos
-- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
-
-## Como esperamos receber sua solução
-
-Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
-
-Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
-
-Nos envie o *link de um repo público* com a sua solução
-
+3. `UserDto`: Esta classe é um Data Transfer Object (DTO) que representa um usuário na aplicação. Ela contém campos para o papel do usuário (`role`), a semente (`seed`) e o nome do usuário (`name`). Cada campo tem anotações de validação para garantir que os dados sejam válidos. Por exemplo, o campo `name` deve ser uma string que contém apenas letras e não pode ser mais longa do que 256 caracteres.
