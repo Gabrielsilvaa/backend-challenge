@@ -1,0 +1,35 @@
+name: CD com Docker
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configurar JDK 21
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+      - name: Construir com Maven
+        run: mvn -B package --file pom.xml
+      - name: Construir e enviar imagem Docker
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: <DOCKER_USERNAME>/<DOCKER_REPO>:latest
+          secrets:
+            - name: DOCKER_USERNAME
+              value: <DOCKER_USERNAME>
+            - name: DOCKER_PASSWORD
+              value: <DOCKER_PASSWORD>
+      - name: Deploy
+        run: |
+          ssh <USER>@<HOST> "docker pull <DOCKER_USERNAME>/<DOCKER_REPO>:latest && docker run -d -p 8080:8080 <DOCKER_USERNAME>/<DOCKER_REPO>:latest"
+        env:
