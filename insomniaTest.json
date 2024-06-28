@@ -1,0 +1,460 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-06-28T20:59:33.370Z",
+  "__export_source": "insomnia.desktop.app:v8.6.1",
+  "resources": [
+    {
+      "_id": "req_654d8c3bc60443bb9bc6c2b46d1eadbc",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607902286,
+      "created": 1719606865213,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN VALIDO",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1719606865213,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "parentId": null,
+      "modified": 1719275879949,
+      "created": 1719275879949,
+      "name": "JWT Test",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_107535d6963b489c978bdf08ce0f956c",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719606974527,
+      "created": 1719606964321,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - JWT INVALIDO",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJzI1NiJ9.dfsdfsfryJSr2xrIjoiQWRtaW4iLCJTZrkIjoiNzg0MSIsIk5hbrUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05fsdfsIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1716500744990.5,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_cfe4d1d0d8f64d1686ef43d09f7251e8",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719608056100,
+      "created": 1719607058028,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - JWT COM MAIS DE TRES CLAIMS",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiTWVtYmVyIiwiT3JnIjoiQlIiLCJTZWVkIjoiMTQ2MjciLCJOYW1lIjoiVmFsZGlyIEFyYW5oYSJ9.cmrXV_Flm5mfdpfNUVopY_I2zeJUy4EZ4i3Fea98zvY",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1714171154823.625,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_11370062f23e4db7ba64fc38768df9df",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607192200,
+      "created": 1719607185319,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - SEED COM NUMERO NAO PRIMO",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiMSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.DxZJvBQ3p4RX3nMH_ZX95xF6Kl24xmHvIdqc_fSi63o",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713588757281.9062,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0cace5011e724de0b09aebacc116673b",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607222350,
+      "created": 1719607213005,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - SEED COM ALFANUMERICO",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiMUEiLCJOYW1lIjoiVG9uaW5obyBBcmF1am8ifQ.6Xur-FcezoT5OcXKhxgYjUSuKTMymI3vYFaCNESgEd4",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713491691024.9531,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_18721ebf8e1c41ca8bfb1a8a764b1ab0",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607600088,
+      "created": 1719607491591,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - SEED NULL",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjpudWxsLCJOYW1lIjoiRElOTyJ9.2nCU937mMfrTX8jy8esOuw5hGEfiIIH5i-U_cPNYe3w",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713467424460.7148,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f74aa5ba18f547e5991b195af49cc9a7",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607602851,
+      "created": 1719607526152,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - SEED EMPTY",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiIiwiTmFtZSI6IkRJTk8ifQ.pZaqXaZRn7K_gqKQebIIInYzlWFat4YgZ1z9QTAJgkQ",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713455291178.5957,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_fdb728b8454746eb9f3ac7a6b2b8d3ce",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607633523,
+      "created": 1719607003940,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - NOME POSSUI ALFANUMERICO",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiRXh0ZXJuYWwiLCJTZWVkIjoiODgwMzciLCJOYW1lIjoiTTRyaWEgT2xpdmlhIn0.6YD73XWZYQSSMDf6H0i3-kylz1-TY_Yt6h1cV2Ku-Qs",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713449224537.5361,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a24fc2e74c9746aa8e3e5da51a9b68c9",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607358162,
+      "created": 1719607244067,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - NOME COM MAIS DE 256 CARACTERES",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiMyIsIk5hbWUiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUEifQ.mDC0qYJiaR580ktR5M8yNAjoMHw4srd-gOBmum-PRvc",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713443157896.4766,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_21b380e27477472bb09de08306961183",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607446058,
+      "created": 1719607368141,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - NOME EMPTY",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiMyIsIk5hbWUiOiIifQ.rH20HGZE5moHxKNEY8Ig4ae7v0mXzp7fxp8LPbW3Qi0",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713418891332.2383,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_ee37d804800f4434961deb17b51de6ab",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607478007,
+      "created": 1719607473381,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - NOME NULL",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiMyIsIk5hbWUiOm51bGx9.o2-Ecq-VfjDKng1uoC8p55zASzDOFEH6oYzObh7ns1o",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713406758050.1191,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_cd0c2409da244d6db6c6f23e87c7ba63",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607610205,
+      "created": 1719607138949,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - ROLE INVALIDA",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQ0xJRU5URSIsIlNlZWQiOiI3ODQxIiwiTmFtZSI6IlRvbmluaG8gQXJhdWpvIn0.yHB1vkAuosG8nBBlp_BJaheXOZp_OAXNSpPoPq1Luxo",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713401449739.192,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6cf4e98a20f3441bbbe6bbdc995c0d44",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607558497,
+      "created": 1719607550425,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - ROLE EMPTY",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiIiwiU2VlZCI6IjMiLCJOYW1lIjoiRElOTyJ9.3nk47dzrfBd45iORrl2Ud36AzrFhKViThuFz8o7l9w0",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713396141428.265,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7d99188da22a4b03a74c7c797fb14088",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719607581394,
+      "created": 1719607568838,
+      "url": "http://localhost:8080/api/decode",
+      "name": "TOKEN INVALIDO - ROLE NULL",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjpudWxsLCJTZWVkIjoiMyIsIk5hbWUiOiJESU5PIn0.gde2_BLO_nVvS86wFoeZFFBkJ-UsVfvVX9WuUKAW8SE",
+          "id": "pair_d82141fc5be042a89c71fa455135049b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1713395383098.1323,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_a57c13a318a36e934b43125084598e3b98027dd1",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719275879951,
+      "created": 1719275879951,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1719275879951,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_a57c13a318a36e934b43125084598e3b98027dd1",
+      "parentId": "wrk_2e381f0e723f408abfe043ab77d2d3ee",
+      "modified": 1719275879953,
+      "created": 1719275879953,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    }
+  ]
+}
