@@ -60,3 +60,5 @@ jobs:
       - name: Apply specific manifests
         run: |
           oc apply -f manifest/spring-deploy.yaml
+          oc apply -f manifest/grafana-deploy.yaml
+          oc apply -f manifest/prometheus-deploy.yaml
