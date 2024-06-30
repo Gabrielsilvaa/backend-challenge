@@ -15,7 +15,7 @@ import static com.gabriel.backend_challenge.entity.adapter.UserAdapter.decodeTok
 public class TokenStructureValidationHandler implements TokenValidationHandler {
     private TokenValidationHandler next;
 
-    private TokenObjectStructureValidationHandler tokenObjectStructureValidationHandler = new TokenObjectStructureValidationHandler();
+    private TokenClaimValidationHandler tokenClaimValidationHandler = new TokenClaimValidationHandler();
 
     @Override
     public void setNext(TokenValidationHandler next) {
@@ -25,11 +25,11 @@ public class TokenStructureValidationHandler implements TokenValidationHandler {
     @Override
     public void handle(String token) throws RuntimeException {
         try {
+            DecodedJWT decodedJWT = JWT.decode(token);
             isTokenStructureValid(token);
-            UserDto userDto = decodeToken(token);
-            isTokenObjectStructureValid(token);
+            UserDto userDto = decodeToken(decodedJWT);
 
-            tokenObjectStructureValidationHandler.validateFields(userDto);
+            tokenClaimValidationHandler.validateFields(userDto);
 
             if (next != null) {
                 next.handle(token);
@@ -48,15 +48,4 @@ public class TokenStructureValidationHandler implements TokenValidationHandler {
         }
     }
 
-    public void isTokenObjectStructureValid(String token) {
-        DecodedJWT decodedJWT = JWT.decode(token);
-        Map<String, Claim> claims = decodedJWT.getClaims();
-        List<String> expectedClaims = Arrays.asList("Role", "Seed", "Name");
-        Set<String> remainingClaims = new HashSet<>(claims.keySet());
-        remainingClaims.removeAll(expectedClaims);
-
-        if (remainingClaims.size() > 0) {
-            throw new RuntimeException("Invalid object structure in token");
-        }
-    }
 }

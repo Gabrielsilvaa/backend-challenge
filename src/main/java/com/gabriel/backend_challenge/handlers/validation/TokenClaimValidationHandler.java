@@ -9,7 +9,7 @@ import jakarta.validation.Validator;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class TokenObjectStructureValidationHandler implements TokenValidationHandler {
+public class TokenClaimValidationHandler implements TokenValidationHandler {
     private TokenValidationHandler next;
 
     @Override

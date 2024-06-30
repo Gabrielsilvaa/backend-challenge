@@ -10,8 +10,7 @@ public class UserAdapter {
     private UserAdapter() {
     }
 
-    public static UserDto decodeToken(String token) {
-        DecodedJWT decodedJWT = JWT.decode(token);
+    public static UserDto decodeToken(DecodedJWT decodedJWT) {
         UserDto userDto = new UserDto();
         userDto.setRole(RoleEnum.valueOf(decodedJWT.getClaim("Role").asString().toUpperCase()));
         userDto.setSeed(Integer.valueOf(decodedJWT.getClaim("Seed").asString()));
