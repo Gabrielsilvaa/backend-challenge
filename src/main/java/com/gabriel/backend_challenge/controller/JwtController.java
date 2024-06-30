@@ -5,8 +5,6 @@ import com.gabriel.backend_challenge.service.ipml.JwtServiceIpml;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Slf4j
 @RestController
@@ -19,24 +17,24 @@ public class JwtController {
     private static final String AUTH = "Authorization";
     private static final Integer BEGININDEX = 7;
 
-    @PostMapping("/decode/v1")
+    @PostMapping("/v1/decode")
     public ResponseEntity<Boolean> decodeJwtToken(@RequestBody String token) {
         if (token == null) {
             log.error("Token cannot be null");
             throw new IllegalArgumentException("Token cannot be null");
         }
-        Boolean result = jwtServiceIpml.decodeJwt(token);
+        Boolean result = jwtServiceIpml.validateToken(token);
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping("/decode")
+    @PostMapping("/v2/decode")
     public ResponseEntity<Boolean> decodeJwtTokenv2(@RequestHeader(AUTH) String bearerToken) {
         if (bearerToken == null || !bearerToken.startsWith(BEAR)) {
             log.error("Invalid or null bearer token");
             throw new IllegalArgumentException("Invalid or null bearer token");
         }
         String token = bearerToken.substring(BEGININDEX);
-        Boolean result = jwtServiceIpml.decodeJwt(token);
+        Boolean result = jwtServiceIpml.validateToken(token);
         return ResponseEntity.ok(result);
     }
 }
