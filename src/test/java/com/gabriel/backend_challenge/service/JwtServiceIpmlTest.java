@@ -24,33 +24,33 @@ class JwtServiceIpmlTest {
 
     @Test
     @DisplayName("decodeJwt should return true when given a valid token")
-    void decodeJwtShouldReturnTrueWhenGivenValidToken() {
+    void validateTokenShouldReturnTrueWhenGivenValidToken() {
         String validToken = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg";
-        boolean result = jwtServiceIpml.decodeJwt(validToken);
+        boolean result = jwtServiceIpml.validateToken(validToken);
         assertTrue(result);
     }
 
     @Test
     @DisplayName("decodeJwt should return false when given an invalid token")
-    void decodeJwtShouldReturnFalseWhenGivenInvalidToken() {
+    void validateTokenShouldReturnFalseWhenGivenInvalidToken() {
         String invalidToken = "invalid_token";
-        boolean result = jwtServiceIpml.decodeJwt(invalidToken);
+        boolean result = jwtServiceIpml.validateToken(invalidToken);
         assertFalse(result);
     }
 
     @Test
     @DisplayName("decodeJwt should return false when given a null token")
-    void decodeJwtShouldReturnFalseWhenGivenNullToken() {
+    void validateTokenShouldReturnFalseWhenGivenNullToken() {
         String nullToken = null;
-        boolean result = jwtServiceIpml.decodeJwt(nullToken);
+        boolean result = jwtServiceIpml.validateToken(nullToken);
         assertFalse(result);
     }
 
     @Test
     @DisplayName("decodeJwt should return false when given an empty token")
-    void decodeJwtShouldReturnFalseWhenGivenEmptyToken() {
+    void validateTokenShouldReturnFalseWhenGivenEmptyToken() {
         String emptyToken = "";
-        boolean result = jwtServiceIpml.decodeJwt(emptyToken);
+        boolean result = jwtServiceIpml.validateToken(emptyToken);
         assertFalse(result);
     }
 }

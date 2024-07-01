@@ -36,14 +36,6 @@ class TokenStructureValidationHandlerTest {
         assertThrows(RuntimeException.class, () -> tokenStructureValidationHandler.handle(invalidStructureToken));
     }
 
-    @Test
-    @DisplayName("handle should throw RuntimeException when given a token with invalid object structure")
-    void handleShouldThrowRuntimeExceptionWhenGivenTokenWithInvalidObjectStructure() {
-        String invalidObjectStructureToken = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiTWVtYmVyIiwiT3JnIjoiQlIiLCJTZWVkIjoiMTQ2MjciLCJOYW1lIjoiVmFsZGlyIEFyYW5oYSJ9.cmrXV_Flm5mfdpfNUVopY_I2zeJUy4EZ4i3Fea98zvY";
-        assertThrows(RuntimeException.class, () -> tokenStructureValidationHandler.handle(invalidObjectStructureToken));
-    }
-
-
 
     @Test
     @DisplayName("handle should not throw RuntimeException when given a token with valid object structure")

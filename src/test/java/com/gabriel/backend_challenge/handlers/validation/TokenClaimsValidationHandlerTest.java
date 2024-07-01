@@ -3,9 +3,7 @@ package com.gabriel.backend_challenge.handlers.validation;
 import com.gabriel.backend_challenge.entity.dto.UserDto;
 import com.gabriel.backend_challenge.entity.enuns.RoleEnum;
 import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
-import com.gabriel.backend_challenge.handlers.validation.TokenObjectStructureValidationHandler;
 import com.gabriel.backend_challenge.testUtil.TestUtil;
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,15 +11,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
-class TokenObjectStructureValidationHandlerTest {
+class TokenClaimValidationHandlerTest {
 
     @InjectMocks
-    private TokenObjectStructureValidationHandler tokenObjectStructureValidationHandler;
+    private TokenClaimValidationHandler tokenClaimValidationHandler;
 
     @Mock
     private TokenValidationHandler nextHandler;
@@ -40,7 +36,7 @@ class TokenObjectStructureValidationHandlerTest {
     @DisplayName("handle should pass the token to the next handler when given a valid token")
     void handleShouldPassTokenToNextHandlerWhenGivenValidToken() {
         String validToken = "your_valid_token_here";
-        tokenObjectStructureValidationHandler.handle(validToken);
+        tokenClaimValidationHandler.handle(validToken);
         verify(nextHandler).handle(validToken);
     }
 
@@ -48,7 +44,7 @@ class TokenObjectStructureValidationHandlerTest {
     @DisplayName("validateFields should throw IllegalArgumentException when given a UserDto with invalid fields")
     void validateFieldsShouldThrowIllegalArgumentExceptionWhenGivenUserDtoWithInvalidFields() {
         UserDto userDto = new UserDto(); // Set invalid fields here
-        assertThrows(IllegalArgumentException.class, () -> tokenObjectStructureValidationHandler.validateFields(userDto));
+        assertThrows(IllegalArgumentException.class, () -> tokenClaimValidationHandler.validateFields(userDto));
     }
 
     @Test
@@ -58,20 +54,20 @@ class TokenObjectStructureValidationHandlerTest {
         userDto.setRole(randomRole);
         userDto.setSeed(randomPrime);
         userDto.setName(radomName);
-        assertDoesNotThrow(() -> tokenObjectStructureValidationHandler.validateFields(userDto));
+        assertDoesNotThrow(() -> tokenClaimValidationHandler.validateFields(userDto));
     }
 
     @Test
     @DisplayName("isValidSeed should throw IllegalArgumentException when given an invalid number")
     void isValidSeedShouldThrowIllegalArgumentExceptionWhenGivenInvalidNumber() {
         int invalidNumber = 0; // Set invalid number here
-        assertThrows(IllegalArgumentException.class, () -> tokenObjectStructureValidationHandler.isValidSeed(invalidNumber));
+        assertThrows(IllegalArgumentException.class, () -> tokenClaimValidationHandler.isValidSeed(invalidNumber));
     }
 
     @Test
     @DisplayName("isValidSeed should not throw any exception when given a valid number")
     void isValidSeedShouldNotThrowAnyExceptionWhenGivenValidNumber() {
         int validNumber = 3; // Set valid number here
-        assertDoesNotThrow(() -> tokenObjectStructureValidationHandler.isValidSeed(validNumber));
+        assertDoesNotThrow(() -> tokenClaimValidationHandler.isValidSeed(validNumber));
     }
 }
