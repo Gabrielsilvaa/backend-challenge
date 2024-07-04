@@ -25,10 +25,7 @@ public class TokenStructureValidationHandler implements TokenValidationHandler {
     @Override
     public void handle(String token) throws RuntimeException {
         try {
-            DecodedJWT decodedJWT = JWT.decode(token);
-            isTokenStructureValid(token);
-            UserDto userDto = decodeToken(decodedJWT);
-
+            UserDto userDto = decodeToken(isTokenStructureValid(token));
             tokenClaimValidationHandler.validateFields(userDto);
 
             if (next != null) {
@@ -40,9 +37,10 @@ public class TokenStructureValidationHandler implements TokenValidationHandler {
         }
     }
 
-    public void isTokenStructureValid(String token) {
+    public DecodedJWT isTokenStructureValid(String token) {
         try {
-        JWT.decode(token);
+            DecodedJWT decodedJWT = JWT.decode(token);
+            return decodedJWT;
         } catch (RuntimeException exception) {
             throw new RuntimeException(exception.getMessage());
         }
