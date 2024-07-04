@@ -52,13 +52,14 @@ class TokenStructureValidationHandlerTest {
         assertDoesNotThrow(() -> tokenStructureValidationHandler.handle(new Context(validStructureToken)));
     }
 
-//    @Test
-//    @DisplayName("handle should pass the token to the next handler when given a valid token")
-//    void handleShouldPassTokenToNextHandlerWhenGivenValidToken() {
-//        String validToken = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg";
-//        tokenStructureValidationHandler.handle(new Context(validToken));
-//        verify(nextHandler).handle(new Context(validToken));
-//    }
+    @Test
+    @DisplayName("handle should pass the token to the next handler when given a valid token")
+    void handleShouldPassTokenToNextHandlerWhenGivenValidToken() {
+        String validToken = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg";
+        Context context = new Context(validToken);
+        tokenStructureValidationHandler.handle(context);
+        verify(nextHandler).handle(context);
+    }
 
     @Test
     @DisplayName("handle should not call the next handler when given an invalid token")
