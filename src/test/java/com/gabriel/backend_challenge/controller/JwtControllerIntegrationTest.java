@@ -55,4 +55,18 @@ public class JwtControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
+    @Test
+    public void whenNullTokenIsProvidedToV2_thenReturnsStatusBadRequest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v2/decode"))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+    }
+
+    @Test
+    public void whenNullTokenIsProvidedToV1_thenReturnsStatusBadRequest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/decode")
+                        .contentType("text/plain"))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+    }
+
+
 }
