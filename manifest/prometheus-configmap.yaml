@@ -11,6 +11,6 @@ data:
       - job_name: "jc-itau"
         metrics_path: "/actuator/prometheus"
         static_configs:
-          - targets: ["spring-app:8080"]
+          - targets: ["spring-app-service"]
             labels:
               application: "api-jwt-decode"
