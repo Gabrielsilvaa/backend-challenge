@@ -66,4 +66,20 @@ class TokenStructureValidationHandlerTest {
         assertThrows(RuntimeException.class, () -> tokenStructureValidationHandler.handle(invalidToken));
         verify(nextHandler, never()).handle(anyString());
     }
+
+    @Test
+    @DisplayName("When not is valid has a valid token")
+    void handleShouldValidToken() {
+        String validObjectStructureToken ="eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg";
+        assertDoesNotThrow(() -> tokenStructureValidationHandler.isTokenStructureValid(validObjectStructureToken));
+    }
+
+    @Test
+    @DisplayName("When not is invalid has a valid token")
+    void handleShouldInValidToken() {
+        String inValidObjectStructureToken ="invalid_structure_token";
+        assertThrows(RuntimeException.class, () -> tokenStructureValidationHandler.isTokenStructureValid(inValidObjectStructureToken));
+    }
+
+
 }

@@ -44,9 +44,10 @@ public class TestUtil {
         String fullName;
         do {
             fullName = FAKER.name().fullName();
-        } while (containsNumber(fullName));
+        } while (containsNumber(fullName) || !fullName.matches("[a-zA-Z ]+"));
         return fullName;
     }
+
 
     private static boolean containsNumber(String input) {
         return input.matches(".*\\d.*");
