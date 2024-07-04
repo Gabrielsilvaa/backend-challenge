@@ -1,6 +1,7 @@
 package com.gabriel.backend_challenge.controller;
 
 
+import com.gabriel.backend_challenge.exception.BadRequestException;
 import com.gabriel.backend_challenge.service.ipml.JwtServiceIpml;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class JwtController {
     public ResponseEntity<Boolean> decodeJwtToken(@RequestBody String token) {
         if (token == null) {
             log.error("Token cannot be null");
-            throw new IllegalArgumentException("Token cannot be null");
+            throw new BadRequestException("Token cannot be null");
         }
         Boolean result = jwtServiceIpml.validateToken(token);
         return ResponseEntity.ok(result);
@@ -31,7 +32,7 @@ public class JwtController {
     public ResponseEntity<Boolean> decodeJwtTokenv2(@RequestHeader(AUTH) String bearerToken) {
         if (bearerToken == null || !bearerToken.startsWith(BEAR)) {
             log.error("Invalid or null bearer token");
-            throw new IllegalArgumentException("Invalid or null bearer token");
+            throw new BadRequestException("Token cannot be null");
         }
         String token = bearerToken.substring(BEGININDEX);
         Boolean result = jwtServiceIpml.validateToken(token);
