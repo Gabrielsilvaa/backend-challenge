@@ -1,6 +1,5 @@
 package com.gabriel.backend_challenge.entity.adapter;
 
-import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.gabriel.backend_challenge.entity.dto.UserDto;
 import com.gabriel.backend_challenge.entity.enuns.RoleEnum;

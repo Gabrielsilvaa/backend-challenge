@@ -2,7 +2,6 @@ package com.gabriel.backend_challenge.handlers.validation;
 
 import com.gabriel.backend_challenge.handlers.Context;
 import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
-import com.gabriel.backend_challenge.handlers.validation.TokenStructureValidationHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.slf4j.Logger;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class TokenStructureValidationHandlerTest {

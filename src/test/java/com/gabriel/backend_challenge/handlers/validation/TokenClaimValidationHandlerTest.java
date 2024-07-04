@@ -2,7 +2,6 @@ package com.gabriel.backend_challenge.handlers.validation;
 
 import com.gabriel.backend_challenge.entity.dto.UserDto;
 import com.gabriel.backend_challenge.entity.enuns.RoleEnum;
-import com.gabriel.backend_challenge.handlers.Context;
 import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
 import com.gabriel.backend_challenge.testUtil.TestUtil;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TokenClaimValidationHandlerTest {
 
