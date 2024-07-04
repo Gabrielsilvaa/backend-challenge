@@ -1,13 +1,13 @@
 package com.gabriel.backend_challenge.service.ipml;
 
+import com.gabriel.backend_challenge.handlers.Context;
 import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
 import com.gabriel.backend_challenge.handlers.validation.TokenClaimValidationHandler;
 import com.gabriel.backend_challenge.handlers.validation.TokenStructureValidationHandler;
 import com.gabriel.backend_challenge.service.JwtService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-@Slf4j
+
 @Component
 public class JwtServiceIpml implements JwtService {
 
@@ -17,9 +17,9 @@ public class JwtServiceIpml implements JwtService {
             TokenValidationHandler structureHandler = new TokenStructureValidationHandler();
             TokenValidationHandler objectStructureHandler = new TokenClaimValidationHandler();
             structureHandler.setNext(objectStructureHandler);
-            structureHandler.handle(token);
+            structureHandler.handle(new Context(token));
             return true;
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             return false;
         }
     }

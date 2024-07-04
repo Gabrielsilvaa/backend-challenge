@@ -1,7 +1,8 @@
 package com.gabriel.backend_challenge.handlers.validation;
 
-import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
 import com.gabriel.backend_challenge.entity.dto.UserDto;
+import com.gabriel.backend_challenge.handlers.Context;
+import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -18,9 +19,12 @@ public class TokenClaimValidationHandler implements TokenValidationHandler {
     }
 
     @Override
-    public void handle(String token) {
+    public void handle(Context context) {
+
+        validateFields(context.getUserDto());
+
         if (next != null) {
-            next.handle(token);
+            next.handle(context);
         }
     }
 

@@ -1,13 +1,11 @@
 package com.gabriel.backend_challenge.handlers.validation;
 
 import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.gabriel.backend_challenge.entity.dto.UserDto;
+import com.gabriel.backend_challenge.handlers.Context;
 import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.*;
 
 import static com.gabriel.backend_challenge.entity.adapter.UserAdapter.decodeToken;
 
@@ -15,21 +13,18 @@ import static com.gabriel.backend_challenge.entity.adapter.UserAdapter.decodeTok
 public class TokenStructureValidationHandler implements TokenValidationHandler {
     private TokenValidationHandler next;
 
-    private TokenClaimValidationHandler tokenClaimValidationHandler = new TokenClaimValidationHandler();
-
     @Override
     public void setNext(TokenValidationHandler next) {
         this.next = next;
     }
 
     @Override
-    public void handle(String token) throws RuntimeException {
+    public void handle(Context context) throws RuntimeException {
         try {
-            UserDto userDto = decodeToken(isTokenStructureValid(token));
-            tokenClaimValidationHandler.validateFields(userDto);
-
+            UserDto userDto = decodeToken(isTokenStructureValid(context.getToken()));
+            context.setUserDto(userDto);
             if (next != null) {
-                next.handle(token);
+                next.handle(context);
             }
         } catch (RuntimeException e) {
             log.error("Invalid token structure or object: " + e.getMessage());
