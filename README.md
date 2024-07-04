@@ -250,8 +250,7 @@ No manifest do projeto contemos todos nossos configuraçoes kubernert, nela defi
 
 ## Conhecendo .github
 
-No .github do projeto temos nossa esteira de CI/cd, nela temos os workflows que são responsaveis por rodar os testes e
-fazer o deploy da aplicação
+No .github do projeto temos nossa esteira de CI/cd, nela temos os workflows que são responsaveis por fazer o deploy da aplicação
 
 ---
 
