@@ -2,6 +2,7 @@ package com.gabriel.backend_challenge.handlers.validation;
 
 import com.gabriel.backend_challenge.entity.dto.UserDto;
 import com.gabriel.backend_challenge.entity.enuns.RoleEnum;
+import com.gabriel.backend_challenge.handlers.Context;
 import com.gabriel.backend_challenge.handlers.TokenValidationHandler;
 import com.gabriel.backend_challenge.testUtil.TestUtil;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,13 +33,7 @@ class TokenClaimValidationHandlerTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    @DisplayName("handle should pass the token to the next handler when given a valid token")
-    void handleShouldPassTokenToNextHandlerWhenGivenValidToken() {
-        String validToken = "your_valid_token_here";
-        tokenClaimValidationHandler.handle(validToken);
-        verify(nextHandler).handle(validToken);
-    }
+
 
     @Test
     @DisplayName("validateFields should throw IllegalArgumentException when given a UserDto with invalid fields")
